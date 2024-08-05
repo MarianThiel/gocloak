@@ -197,25 +197,34 @@ type IntroSpectTokenResult struct {
 
 // User represents the Keycloak User Structure
 type User struct {
-	ID                         *string                     `json:"id,omitempty"`
-	CreatedTimestamp           *int64                      `json:"createdTimestamp,omitempty"`
-	Username                   *string                     `json:"username,omitempty"`
-	Enabled                    *bool                       `json:"enabled,omitempty"`
-	Totp                       *bool                       `json:"totp,omitempty"`
-	EmailVerified              *bool                       `json:"emailVerified,omitempty"`
-	FirstName                  *string                     `json:"firstName,omitempty"`
-	LastName                   *string                     `json:"lastName,omitempty"`
-	Email                      *string                     `json:"email,omitempty"`
-	FederationLink             *string                     `json:"federationLink,omitempty"`
-	Attributes                 *map[string][]string        `json:"attributes,omitempty"`
-	DisableableCredentialTypes *[]interface{}              `json:"disableableCredentialTypes,omitempty"`
-	RequiredActions            *[]string                   `json:"requiredActions,omitempty"`
-	Access                     *map[string]bool            `json:"access,omitempty"`
-	ClientRoles                *map[string][]string        `json:"clientRoles,omitempty"`
-	RealmRoles                 *[]string                   `json:"realmRoles,omitempty"`
-	Groups                     *[]string                   `json:"groups,omitempty"`
-	ServiceAccountClientID     *string                     `json:"serviceAccountClientId,omitempty"`
-	Credentials                *[]CredentialRepresentation `json:"credentials,omitempty"`
+	ID                         *string                      `json:"id,omitempty"`
+	CreatedTimestamp           *int64                       `json:"createdTimestamp,omitempty"`
+	Username                   *string                      `json:"username,omitempty"`
+	Enabled                    *bool                        `json:"enabled,omitempty"`
+	Totp                       *bool                        `json:"totp,omitempty"`
+	EmailVerified              *bool                        `json:"emailVerified,omitempty"`
+	FirstName                  *string                      `json:"firstName,omitempty"`
+	LastName                   *string                      `json:"lastName,omitempty"`
+	Email                      *string                      `json:"email,omitempty"`
+	FederationLink             *string                      `json:"federationLink,omitempty"`
+	Attributes                 *map[string][]string         `json:"attributes,omitempty"`
+	DisableableCredentialTypes *[]interface{}               `json:"disableableCredentialTypes,omitempty"`
+	RequiredActions            *[]string                    `json:"requiredActions,omitempty"`
+	Access                     *map[string]bool             `json:"access,omitempty"`
+	ClientRoles                *map[string][]string         `json:"clientRoles,omitempty"`
+	RealmRoles                 *[]string                    `json:"realmRoles,omitempty"`
+	Groups                     *[]string                    `json:"groups,omitempty"`
+	ServiceAccountClientID     *string                      `json:"serviceAccountClientId,omitempty"`
+	Credentials                *[]CredentialRepresentation  `json:"credentials,omitempty"`
+	ClientConsents             *[]UserConsentRepresentation `json:"clientConsents,omitempty"`
+}
+
+type UserConsentRepresentation struct {
+	ClientId            *string   `json:"clientId,omitempty"`
+	GrantedClientScopes *[]string `json:"grantedClientScopes,omitempty"`
+	CreatedDate         *int64    `json:"createdDate,omitempty"`
+	LastUpdatedDate     *int64    `json:"lastUpdatedDate,omitempty"`
+	GrantedRealmRoles   *[]string `json:"grantedRealmRoles,omitempty"`
 }
 
 // SetPasswordRequest sets a new password
